@@ -1,4 +1,4 @@
-# sikai-node
+# egg-server-admin
 
 
 
