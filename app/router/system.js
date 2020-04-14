@@ -2,7 +2,7 @@
 
 // 系统接口
 module.exports = app => {
-  app.router.post('/admin/user/login', app.controller.system.list);
+  app.router.post('/user/login', app.controller.system.login);
   app.router.post('/admin/user/getDetail', app.controller.system.list);
   app.router.post('/menu/getRoute', app.controller.system.list);
   app.router.post('/common/area/getAll', app.controller.system.list);

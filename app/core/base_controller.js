@@ -9,7 +9,6 @@ class BaseController extends Controller {
     console.log(res);
     this.ctx.body = {
       status: res.code,
-      success: true,
       data: res.data,
       message: res.msg,
     };

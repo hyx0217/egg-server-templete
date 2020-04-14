@@ -11,14 +11,19 @@ module.exports = {
     } else {
       targetUrl = this.app.config.baseUrl + url;
     }
-    const res = await ctx.curl(targetUrl, {
-      method,
-      data,
-      dataType: 'json',
-      headers: {
-        token: '',
-      },
-    });
-    return (res.data);
+    try {
+      const res = await ctx.curl(targetUrl, {
+        method,
+        data,
+        dataType: 'json',
+        headers: {
+          token: this.app.redis.get('token'),
+        },
+      });
+      return res.data;
+    } catch (error) {
+      return error;
+    }
+
   },
 };
