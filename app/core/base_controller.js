@@ -1,16 +1,15 @@
 'use strict';
 const { Controller } = require('egg');
 class BaseController extends Controller {
-/*   get user() {
+  get user() {
     return this.ctx.session.user;
   }
- */
+
   success(res) {
-    console.log(res);
     this.ctx.body = {
-      status: res.code,
+      code: res.code,
       data: res.data,
-      message: res.msg,
+      msg: res.msg,
     };
   }
 

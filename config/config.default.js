@@ -12,12 +12,14 @@ module.exports = appInfo => {
    **/
   const config = exports = {};
   config.security = {
-    xframe: {
-      enable: false,
-    },
     csrf: {
       enable: false,
     },
+    domainWhiteList: [ '*' ],
+  };
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   };
   config.redis = {
     client: {

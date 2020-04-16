@@ -17,7 +17,7 @@ module.exports = {
         data,
         dataType: 'json',
         headers: {
-          token: this.app.redis.get('token'),
+          token: ctx.headers.token,
         },
       });
       return res.data;
