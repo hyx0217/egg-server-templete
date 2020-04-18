@@ -13,10 +13,12 @@ module.exports = appInfo => {
   const config = exports = {};
   config.security = {
     csrf: {
+      headerName: 'token',
       enable: false,
     },
     domainWhiteList: [ '*' ],
   };
+  // 跨域配置
   config.cors = {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
@@ -30,7 +32,7 @@ module.exports = appInfo => {
     },
   };
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1586587199716_572';
+  config.keys = appInfo.name + 'Lowkey_52033';
 
   // add your middleware config here
   config.middleware = [];

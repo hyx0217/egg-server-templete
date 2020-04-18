@@ -12,6 +12,7 @@ module.exports = {
       targetUrl = this.app.config.baseUrl + url;
     }
     try {
+      const start = (new Date()).getTime();
       const res = await ctx.curl(targetUrl, {
         method,
         data,
@@ -20,8 +21,10 @@ module.exports = {
           token: ctx.headers.token,
         },
       });
+      ctx.logger.info('请求响应 %d ms', Date.now() - start);
       return res.data;
     } catch (error) {
+      ctx.logger.warn('请求错误：' + error);
       return error;
     }
 
