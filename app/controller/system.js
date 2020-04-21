@@ -43,23 +43,36 @@ class HomeController extends Controller {
     const {
       ctx,
     } = this;
-    const urlArr = [ '/admin/access/getList', '/admin/fabric/getList', '/admin/factory/getList', '/admin/client/getList', '/admin/offer/getList', '/admin/proof/getList' ];
+    const urlArr = [{
+      url: '/admin/access/getList',
+      name: 'accessList',
+    }, {
+      url: '/admin/fabric/getList',
+      name: 'fabricList',
+    }, {
+      url: '/admin/factory/getList',
+      name: 'factoryList',
+    }, {
+      url: '/admin/client/getList',
+      name: 'clientList',
+    }, {
+      url: '/admin/offer/getList',
+      name: 'offerList',
+    }, {
+      url: '/admin/proof/getList',
+      name: 'proofList',
+    }];
     const result = [];
     for (const value of urlArr) {
-      try {
-        const res = await ctx.helper.http(value);
-        result.push(res.data);
-        this.success({
-          code: '000000',
-          msg: '获取成功',
-          data: result,
-        });
-      } catch (error) {
-        this.notFound(error);
-      }
+      const res = ctx.helper.http(value);
+      result.push(res.data);
     }
+    this.success({
+      code: '000000',
+      msg: '获取成功',
+      data: result,
+    });
   }
-
 }
 
 module.exports = HomeController;
