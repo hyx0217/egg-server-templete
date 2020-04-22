@@ -24,9 +24,9 @@ module.exports = {
         },
       });
       //  contentDownload：全部响应数据接收完毕耗时
-      // if (res.res.timing.contentDownload > 1000) {
-      ctx.logger.info(`请求${targetUrl}响应耗时：${res.res.timing.contentDownload}ms`);
-      // }
+      if (res.res.timing.contentDownload > 1000) {
+        ctx.logger.info(`请求${targetUrl}响应耗时：${res.res.timing.contentDownload}ms`);
+      }
       if (res.data.code !== '000000') {
         throw (res.data.msg);
       }
