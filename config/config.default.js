@@ -35,9 +35,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + 'Lowkey_52033';
 
   // add your middleware config here
-  config.middleware = [
-    'mock',
-  ];
+  config.middleware = [];
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

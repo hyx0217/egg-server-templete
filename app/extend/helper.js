@@ -23,15 +23,10 @@ module.exports = {
           token: ctx.headers.token,
         },
       });
-      // {
-      //  queuing：分配 socket 耗时
-      //  dnslookup：DNS 查询耗时
-      //  connected：socket 三次握手连接成功耗时
-      //  requestSent：请求数据完整发送完毕耗时
-      //  waiting：收到第一个字节的响应数据耗时
       //  contentDownload：全部响应数据接收完毕耗时
+      // if (res.res.timing.contentDownload > 1000) {
+      ctx.logger.info(`请求${targetUrl}响应耗时：${res.res.timing.contentDownload}ms`);
       // }
-      ctx.logger.info('请求响应耗时：' + res.res.timing.contentDownload + 'ms');
       if (res.data.code !== '000000') {
         throw (res.data.msg);
       }

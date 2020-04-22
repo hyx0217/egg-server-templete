@@ -2,10 +2,8 @@
 
 // 系统接口
 module.exports = app => {
-  app.router.post('/admin/user/login', app.controller.system.login);
-  app.router.post('/admin/user/getDetail', app.controller.system.userDetail);
-  app.router.post('/admin/menu/getRoute', app.controller.system.list);
-  app.router.post('/getAllCommon', app.controller.system.getAllCommonList);
-  // app.router.post('/common/area/getAll', app.controller.system.list);
-  // app.router.post('/admin/upload/upload', app.controller.system.list);
+  const { system } = app.controller;
+  app.router.post('/admin/user/login', system.login);
+  app.router.post('/admin/user/getDetail', system.userDetail);
+  app.router.post('/list', system.list);
 };

@@ -2,6 +2,6 @@
 'use strict';
 module.exports = () => {
   return {
-    baseUrl: 'http://121.40.51.112',
+    baseUrl: 'http://localhost:3000',
   };
 };
