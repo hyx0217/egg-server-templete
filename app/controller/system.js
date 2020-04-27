@@ -28,7 +28,6 @@ class HomeController extends Controller {
   }
   // 获取菜单路由
   async list() {
-    console.log(this.user);
     const {
       ctx,
     } = this;
