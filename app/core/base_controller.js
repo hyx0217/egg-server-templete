@@ -5,8 +5,9 @@ class BaseController extends Controller {
     return this.ctx.session.user;
   }
   success(res) {
-    // 后端数据返回不是驼峰式，可以通过该方法清洗数据，性能可能有影响
+    // 后端数据返回不是驼峰式，可以通过该方法清洗数据，数据大性能可能有影响
     const result = this.ctx.helper.formaterResponse(res.data);
+    // const result = res.data;
     this.ctx.body = {
       code: res.code,
       data: result,

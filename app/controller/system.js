@@ -26,7 +26,7 @@ class HomeController extends Controller {
       this.notFound(error);
     }
   }
-  // 获取菜单路由
+  // 聚合数据
   async list() {
     const {
       ctx,

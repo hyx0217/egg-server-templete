@@ -4,9 +4,9 @@ module.exports = {
   async http(url, data, method = 'GET') {
     const { ctx } = this;
     let targetUrl;
-    /*  if (url[0] === '/') {
-      url = url.splice(0, 1);
-    } */
+    // if (url[0] === '/') {
+    //   url = url.slice(1);
+    // }
     if (url.includes('http')) {
       targetUrl = url;
     } else {
