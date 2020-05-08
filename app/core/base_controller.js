@@ -6,12 +6,10 @@ class BaseController extends Controller {
   }
   success(res) {
     // 后端数据返回不是驼峰式，可以通过该方法清洗数据，数据大性能可能有影响
-    const result = this.ctx.helper.formaterResponse(res.data);
-    // const result = res.data;
+    this.ctx.helper.formaterResponse(res.data);
     this.ctx.body = {
-      code: res.code,
-      data: result,
-      msg: res.msg,
+      code: '000000',
+      data: res.data,
     };
   }
   notFound(msg) {

@@ -14,13 +14,13 @@ class HomeController extends Controller {
       this.notFound(error);
     }
   }
-  // 获取用户详情
-  async userDetail() {
+  // 获取主题首页
+  async getTopics() {
     const {
       ctx,
     } = this;
     try {
-      const res = await ctx.helper.http('/admin/user/getDetail', ctx.query);
+      const res = await ctx.helper.http('/topics');
       this.success(res);
     } catch (error) {
       this.notFound(error);
