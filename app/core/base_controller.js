@@ -10,6 +10,7 @@ class BaseController extends Controller {
     this.ctx.body = {
       code: '000000',
       data: res.data,
+      msg: res.success,
     };
   }
   notFound(msg) {

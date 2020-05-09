@@ -6,5 +6,5 @@ module.exports = app => {
   app.router.post('/admin/user/login', system.login);
   app.router.post('/list', system.list);
   app.router.get('/getTopic', system.getTopics);
-
+  app.router.get('/getTopicDetail', system.getTopicDetail);
 };

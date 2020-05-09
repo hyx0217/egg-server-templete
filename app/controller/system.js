@@ -26,6 +26,18 @@ class HomeController extends Controller {
       this.notFound(error);
     }
   }
+  // 获取主题详情
+  async getTopicDetail() {
+    const {
+      ctx,
+    } = this;
+    try {
+      const res = await ctx.helper.http(`/topic/${ctx.query.id}`);
+      this.success(res);
+    } catch (error) {
+      this.notFound(error);
+    }
+  }
   // 聚合数据
   async list() {
     const {
