@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   // http请求
-  async http(url, data, method = 'GET') {
+  async http(url, data, method = 'POST') {
     const { ctx } = this;
     let targetUrl;
     // if (url[0] === '/') {

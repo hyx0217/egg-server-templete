@@ -8,7 +8,19 @@ class HomeController extends Controller {
       ctx,
     } = this;
     try {
-      const res = await ctx.helper.http('/admin/user/login', ctx.query);
+      const res = await ctx.helper.http('/user/public/login', ctx.query);
+      this.success(res);
+    } catch (error) {
+      this.notFound(error);
+    }
+  }
+  // 注册
+  async register() {
+    const {
+      ctx,
+    } = this;
+    try {
+      const res = await ctx.helper.http('/user/public/register', ctx.query);
       this.success(res);
     } catch (error) {
       this.notFound(error);
