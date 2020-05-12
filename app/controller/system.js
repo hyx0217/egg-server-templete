@@ -8,7 +8,7 @@ class HomeController extends Controller {
       ctx,
     } = this;
     try {
-      const res = await ctx.helper.http('/user/public/login', ctx.query);
+      const res = await ctx.helper.http('/user/public/login', ctx.request.body);
       this.success(res);
     } catch (error) {
       this.notFound(error);
@@ -20,38 +20,25 @@ class HomeController extends Controller {
       ctx,
     } = this;
     try {
-      const res = await ctx.helper.http('/user/public/register', ctx.query);
+      const res = await ctx.helper.http('/user/public/register', ctx.request.body);
       this.success(res);
     } catch (error) {
       this.notFound(error);
     }
   }
-  // 获取主题首页
-  async getTopics() {
+  async getList() {
     const {
       ctx,
     } = this;
     try {
-      const res = await ctx.helper.http('/topics');
-      this.success(res);
-    } catch (error) {
-      this.notFound(error);
-    }
-  }
-  // 获取主题详情
-  async getTopicDetail() {
-    const {
-      ctx,
-    } = this;
-    try {
-      const res = await ctx.helper.http(`/topic/${ctx.query.id}`);
+      const res = await ctx.helper.http('/list/getList', ctx.request.body);
       this.success(res);
     } catch (error) {
       this.notFound(error);
     }
   }
   // 聚合数据
-  async list() {
+  async makeUpList() {
     const {
       ctx,
     } = this;

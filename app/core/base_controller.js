@@ -8,9 +8,9 @@ class BaseController extends Controller {
     // 后端数据返回不是驼峰式，可以通过该方法清洗数据，数据大性能可能有影响
     this.ctx.helper.formaterResponse(res.data);
     this.ctx.body = {
-      code: '000000',
+      code: res.code,
       data: res.data,
-      msg: res.success,
+      msg: res.msg,
     };
   }
   notFound(msg) {

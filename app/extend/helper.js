@@ -4,9 +4,6 @@ module.exports = {
   async http(url, data, method = 'POST') {
     const { ctx } = this;
     let targetUrl;
-    // if (url[0] === '/') {
-    //   url = url.slice(1);
-    // }
     if (url.includes('http')) {
       targetUrl = url;
     } else {
@@ -18,7 +15,9 @@ module.exports = {
         data,
         dataType: 'json',
         timing: true,
+        headers: ctx.header,
       });
+
       /* timing ：{
           queuing：分配 socket 耗时
           dnslookup：DNS 查询耗时
@@ -34,9 +33,9 @@ module.exports = {
         );
       }
       // 这里可以根据后台返回状态码判断请求成功或失败
-      /*  if (res.data.code !== '000000') {
+      if (res.data.code !== 1) {
         throw res.data.msg;
-      } */
+      }
       return res.data;
     } catch (error) {
       ctx.logger.warn('请求错误：' + error);
@@ -47,6 +46,9 @@ module.exports = {
   camelCase(val) {
     const arr = val.split('_');
     if (arr.length > 1) {
+      if (arr[0] === '') {
+        arr.splice(0, 1);
+      }
       for (let i = 1; i < arr.length; i++) {
         arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
       }
