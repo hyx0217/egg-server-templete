@@ -8,7 +8,7 @@ class HomeController extends Controller {
       ctx,
     } = this;
     try {
-      const res = await ctx.helper.http('/user/public/login', ctx.request.body);
+      const res = await ctx.helper.http('/user/login', ctx.request.body);
       this.success(res);
     } catch (error) {
       this.notFound(error);
@@ -20,12 +20,37 @@ class HomeController extends Controller {
       ctx,
     } = this;
     try {
-      const res = await ctx.helper.http('/user/public/register', ctx.request.body);
+      const res = await ctx.helper.http('/user/register', ctx.request.body);
       this.success(res);
     } catch (error) {
       this.notFound(error);
     }
   }
+  // 重置密码
+  async forget() {
+    const {
+      ctx,
+    } = this;
+    try {
+      const res = await ctx.helper.http('/user/forget', ctx.request.body);
+      this.success(res);
+    } catch (error) {
+      this.notFound(error);
+    }
+  }
+  // 获取登录用户详情
+  async getUser() {
+    const {
+      ctx,
+    } = this;
+    try {
+      const res = await ctx.helper.http('/user/getUser');
+      this.success(res);
+    } catch (error) {
+      this.notFound(error);
+    }
+  }
+  // 获取列表
   async getList() {
     const {
       ctx,

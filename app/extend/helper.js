@@ -17,7 +17,6 @@ module.exports = {
         timing: true,
         headers: ctx.header,
       });
-
       /* timing ：{
           queuing：分配 socket 耗时
           dnslookup：DNS 查询耗时

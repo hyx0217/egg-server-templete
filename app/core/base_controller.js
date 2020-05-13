@@ -15,7 +15,9 @@ class BaseController extends Controller {
   }
   notFound(msg) {
     msg = msg || 'not found';
-    this.ctx.throw(404, msg);
+    this.ctx.body = {
+      msg,
+    };
   }
 }
 module.exports = BaseController;
