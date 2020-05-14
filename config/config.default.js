@@ -23,14 +23,6 @@ module.exports = appInfo => {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   };
-  config.redis = {
-    client: {
-      port: 6379, // Redis port
-      host: '127.0.0.1', // Redis host
-      password: 'auth',
-      db: 0,
-    },
-  };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + 'Lowkey_52033';
 
