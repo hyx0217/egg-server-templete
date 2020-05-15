@@ -1,4 +1,5 @@
 'use strict';
+/* 这里统一放一些工具函数 */
 module.exports = {
   // http请求
   async http(url, data, method = 'POST') {

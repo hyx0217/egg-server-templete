@@ -16,6 +16,8 @@ class BaseController extends Controller {
   notFound(msg) {
     msg = msg || 'not found';
     this.ctx.body = {
+      code: -1,
+      data: '',
       msg,
     };
   }
