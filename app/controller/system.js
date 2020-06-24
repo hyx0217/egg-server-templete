@@ -12,7 +12,7 @@ class HomeController extends Controller {
       ctx.session.token = res.data.token;
       delete res.data.password;
       this.success(res);
-    } catch (error) {
+    } catch (error){
       this.notFound(error);
     }
   }
