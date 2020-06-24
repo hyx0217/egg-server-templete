@@ -10,7 +10,7 @@ class HomeController extends Controller {
     try {
       const res = await ctx.helper.http('/user/login', ctx.request.body);
       this.success(res);
-    } catch (error) {
+    } catch (error){
       this.notFound(error);
     }
   }
