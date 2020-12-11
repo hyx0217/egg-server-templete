@@ -16,7 +16,7 @@ module.exports = {
         data,
         dataType: 'json',
         timing: true,
-        headers: ctx.header,
+        headers: { token: ctx.session.token },
       });
       /* timing ：{
           queuing：分配 socket 耗时

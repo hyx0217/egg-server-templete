@@ -23,21 +23,31 @@ module.exports = appInfo => {
     ], */
     /*    agentidMode:'IP' '可选，如果设置，则在实例ID中添加部分IP信息，用于多个实例 hostname 相同的场景（以容器为主）' */
   };
+
   config.security = {
     csrf: {
-      headerName: 'token',
       enable: false,
     },
     domainWhiteList: [ '*' ],
   };
   // 跨域配置
   config.cors = {
-    origin: '*',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+    origin: 'http://127.0.0.1:8080', // 前端携带cookies需要设置成具体的域名
+    credentials: true,
   };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + 'Lowkey_52033';
-
+  config.cookies = {
+    maxAge: 24 * 3600 * 1000, // 1 天
+    httpOnly: true,
+    encrypt: true,
+  };
+  config.session = {
+    key: 'EGG_SESS',
+    maxAge: 24 * 3600 * 1000, // 1 天
+    httpOnly: true,
+    encrypt: true,
+  };
   // add your middleware config here
   config.middleware = [];
   // add your user config here

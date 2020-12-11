@@ -8,13 +8,21 @@ class HomeController extends Controller {
     try {
       const res = await ctx.helper.http('/user/login', ctx.request.body);
       // 将用户信息存入session
-      ctx.session.userId = res.data.user_id;
       ctx.session.token = res.data.token;
       delete res.data.password;
       this.success(res);
     } catch (error) {
       this.notFound(error);
     }
+  }
+  // 退出
+  async logout() {
+    const { ctx } = this;
+    // 删除session
+    ctx.session.userId = null;
+    ctx.session.token = null;
+    this.success({ code: 1, data: {}, msg: '退出成功' });
+
   }
   // 注册
   async register() {
@@ -58,7 +66,10 @@ class HomeController extends Controller {
   // 获取列表
   async getList() {
     const { ctx } = this;
-    console.log(ctx.session);
+    // let count = ctx.cookies.get('count');
+    // count = count ? Number(count) : 0;
+    // ctx.cookies.set('count', ++count);
+    // console.log(count)
     try {
       const res = await ctx.helper.http('/list/getList', ctx.request.body);
       this.success(res);
