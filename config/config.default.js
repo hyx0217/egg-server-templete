@@ -11,7 +11,9 @@ module.exports = appInfo => {
    * @type {Egg.EggAppConfig}
    **/
   const config = {
+    // alinode开启监控 https://www.aliyun.com/product/nodejs
     alinode: {
+      enable: false, // 开发环境下关闭，防止报错
       server: 'wss://agentserver.node.aliyun.com:8080',
       appid: '85354',
       secret: '7b153115ce7880388e90e80ce4ffc3dcebafb8d0',
