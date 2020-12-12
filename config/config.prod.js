@@ -12,14 +12,9 @@ module.exports = appInfo => {
    **/
   const config = exports = {
     baseUrl: 'http://106.15.121.64/server',
+    keys: appInfo.name + '_1586587199716_572',
+
   };
-
-  // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1586587199716_572';
-
-  // add your middleware config here
-  config.middleware = [];
-
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
